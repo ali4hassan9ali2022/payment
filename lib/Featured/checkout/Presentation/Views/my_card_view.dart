@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:payment_app/Core/Utils/app_style.dart';
+import 'package:payment_app/Core/Utils/assets.dart';
 
 class MyCardView extends StatelessWidget {
   const MyCardView({super.key});
@@ -8,10 +10,12 @@ class MyCardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_new_outlined),
+        centerTitle: true,
+        leading: Center(child: SvgPicture.asset(Assets.imagesArrow)),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text("My Card", style: AppStyle.style25)),
+        title: Text("My Card", style: AppStyle.style25),
+      ),
     );
   }
 }
