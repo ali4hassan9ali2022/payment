@@ -5,6 +5,19 @@ class MyCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "My Card",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 25,
+            fontFamily: "Inter",
+            fontWeight: FontWeight.w500,
+            height: 0,
+          ),
+        ),
+      ),
+    );
   }
 }
