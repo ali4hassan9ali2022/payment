@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payment_app/Core/Utils/assets.dart';
+import 'package:payment_app/Core/Widgets/custom_divider.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/order_info_item.dart';
 
 class MyCardViewBody extends StatelessWidget {
@@ -19,6 +20,7 @@ class MyCardViewBody extends StatelessWidget {
           OrderInfoItem(title: "Discount", value: r"$0"),
           SizedBox(height: 3),
           OrderInfoItem(title: "Shipping", value: r"$8"),
+          CustomDivider(color: Color(0xffc6c6c6), thickness: 2, height: 34),
         ],
       ),
     );
