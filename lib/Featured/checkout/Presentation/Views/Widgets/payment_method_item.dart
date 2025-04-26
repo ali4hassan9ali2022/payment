@@ -1,27 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:payment_app/Core/Utils/assets.dart';
 
 class PaymentMethodItem extends StatelessWidget {
-  const PaymentMethodItem({super.key});
-
+  const PaymentMethodItem({
+    super.key,
+    required this.isAvtive,
+    required this.image,
+  });
+  final bool isAvtive;
+  final String image;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
       width: 103,
       height: 62,
 
       decoration: ShapeDecoration(
         shadows: [
           BoxShadow(
-            color: Color(0xff34A853),
+            color: isAvtive ? Color(0xff34A853) : Color(0xffAFAFAF),
             blurRadius: 4,
             offset: Offset(0, 0),
             spreadRadius: 0,
           ),
         ],
         shape: RoundedRectangleBorder(
-          side: BorderSide(color: Color(0xff34A853), width: 1.50),
+          side: BorderSide(
+            color: isAvtive ? Color(0xff34A853) : Color(0xffAFAFAF),
+            width: 1.50,
+          ),
           borderRadius: BorderRadius.circular(15),
         ),
       ),
@@ -30,7 +38,7 @@ class PaymentMethodItem extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Center(child: SvgPicture.asset(Assets.imagesCard)),
+        child: Center(child: SvgPicture.asset(image)),
       ),
     );
   }
