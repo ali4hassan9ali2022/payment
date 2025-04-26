@@ -5,6 +5,7 @@ import 'package:payment_app/Core/Widgets/custom_button.dart';
 import 'package:payment_app/Core/Widgets/custom_divider.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/order_info_item.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/total_price.dart';
+import 'package:payment_app/Featured/checkout/Presentation/Views/payment_details_view.dart';
 
 class MyCardViewBody extends StatelessWidget {
   const MyCardViewBody({super.key});
@@ -32,7 +33,11 @@ class MyCardViewBody extends StatelessWidget {
           SizedBox(height: 16),
           //! Button
           CustomButton(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => PaymentDetailsView()),
+              );
+            },
             borderRadius: 15,
             color: Color(0xff34a853),
             width: double.infinity,

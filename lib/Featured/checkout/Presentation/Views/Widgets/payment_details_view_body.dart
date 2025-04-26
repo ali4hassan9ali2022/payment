@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/payment_method_item.dart';
+
+class PaymentDetailsViewBody extends StatelessWidget {
+  const PaymentDetailsViewBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [PaymentMethodItem()]);
+  }
+}
