@@ -17,7 +17,7 @@ class MyCardViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 18),
           //! image card
-          Image.asset(Assets.imagesBasketImage),
+          Expanded(child: Image.asset(Assets.imagesBasketImage)),
           SizedBox(height: 25),
           //! Order Info
           OrderInfoItem(title: "Order Subtotal", value: r"$42.97"),
