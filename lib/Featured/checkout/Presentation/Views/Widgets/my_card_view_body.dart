@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:payment_app/Core/Utils/assets.dart';
 import 'package:payment_app/Core/Widgets/custom_divider.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/order_info_item.dart';
+import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/total_price.dart';
 
 class MyCardViewBody extends StatelessWidget {
   const MyCardViewBody({super.key});
@@ -21,6 +22,7 @@ class MyCardViewBody extends StatelessWidget {
           SizedBox(height: 3),
           OrderInfoItem(title: "Shipping", value: r"$8"),
           CustomDivider(color: Color(0xffc6c6c6), thickness: 2, height: 34),
+          TotalPrice(title: "Total", value: r"$50.97"),
         ],
       ),
     );
