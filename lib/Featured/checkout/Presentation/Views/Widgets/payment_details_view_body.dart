@@ -7,9 +7,14 @@ import 'package:payment_app/Featured/checkout/Cubit/app_state.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/custom_credit_card.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/payment_methods_list_view.dart';
 
-class PaymentDetailsViewBody extends StatelessWidget {
+class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});
 
+  @override
+  State<PaymentDetailsViewBody> createState() => _PaymentDetailsViewBodyState();
+}
+
+class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<AppCubit>(context);
@@ -21,6 +26,7 @@ class PaymentDetailsViewBody extends StatelessWidget {
             SliverToBoxAdapter(child: PaymentMethodsListView()),
             SliverToBoxAdapter(child: CustomCreditCard()),
             SliverFillRemaining(
+              hasScrollBody: false,
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
@@ -35,7 +41,14 @@ class PaymentDetailsViewBody extends StatelessWidget {
                     width: double.infinity,
                     height: 73,
                     onTap: () {
-                      if (cubit.formKey.currentState!.validate()) {}
+                      if (cubit.formKey.currentState!.validate()) {
+                        cubit.formKey.currentState!.save();
+                      } else {
+                        cubit.autovalidateMode=AutovalidateMode.always;
+                        setState(() {
+                          
+                        });
+                      }
                     },
                     child: Center(child: Text("Play", style: AppStyle.style22)),
                   ),

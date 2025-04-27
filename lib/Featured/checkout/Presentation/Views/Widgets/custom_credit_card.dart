@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:payment_app/Core/Helper/app_helper.dart';
 import 'package:payment_app/Featured/checkout/Cubit/app_cubit.dart';
-import 'package:payment_app/Featured/checkout/Cubit/app_state.dart';
 
 class CustomCreditCard extends StatelessWidget {
   const CustomCreditCard({super.key});
