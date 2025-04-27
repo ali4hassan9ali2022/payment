@@ -6,6 +6,7 @@ import 'package:payment_app/Featured/checkout/Cubit/app_cubit.dart';
 import 'package:payment_app/Featured/checkout/Cubit/app_state.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/custom_credit_card.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/payment_methods_list_view.dart';
+import 'package:payment_app/Featured/checkout/Presentation/Views/thank_you_view.dart';
 
 class PaymentDetailsViewBody extends StatefulWidget {
   const PaymentDetailsViewBody({super.key});
@@ -44,10 +45,13 @@ class _PaymentDetailsViewBodyState extends State<PaymentDetailsViewBody> {
                       if (cubit.formKey.currentState!.validate()) {
                         cubit.formKey.currentState!.save();
                       } else {
-                        cubit.autovalidateMode=AutovalidateMode.always;
-                        setState(() {
-                          
-                        });
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => ThankYouView(),
+                          ),
+                        );
+                        cubit.autovalidateMode = AutovalidateMode.always;
+                        setState(() {});
                       }
                     },
                     child: Center(child: Text("Play", style: AppStyle.style22)),
