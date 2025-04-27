@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:payment_app/Core/Utils/app_style.dart';
+import 'package:payment_app/Core/Widgets/custom_button.dart';
+import 'package:payment_app/Featured/checkout/Cubit/app_cubit.dart';
+import 'package:payment_app/Featured/checkout/Cubit/app_state.dart';
+import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/custom_credit_card.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/payment_methods_list_view.dart';
 
 class PaymentDetailsViewBody extends StatelessWidget {
@@ -6,6 +12,39 @@ class PaymentDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [PaymentMethodsListView()]);
+    var cubit = BlocProvider.of<AppCubit>(context);
+    return BlocConsumer<AppCubit, AppState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: PaymentMethodsListView()),
+            SliverToBoxAdapter(child: CustomCreditCard()),
+            SliverFillRemaining(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 12,
+                    left: 16,
+                    right: 16,
+                  ),
+                  child: CustomButton(
+                    borderRadius: 15,
+                    color: Color(0xff34a853),
+                    width: double.infinity,
+                    height: 73,
+                    onTap: () {
+                      if (cubit.formKey.currentState!.validate()) {}
+                    },
+                    child: Center(child: Text("Play", style: AppStyle.style22)),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
