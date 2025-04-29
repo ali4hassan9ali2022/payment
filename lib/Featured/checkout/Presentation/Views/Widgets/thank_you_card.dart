@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:payment_app/Core/Utils/app_style.dart';
+
+import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/card_info_widget.dart';
 import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/payment_info_item.dart';
+import 'package:payment_app/Featured/checkout/Presentation/Views/Widgets/total_price.dart';
 
 class ThankYouCard extends StatelessWidget {
   const ThankYouCard({super.key});
@@ -25,6 +29,10 @@ class ThankYouCard extends StatelessWidget {
             PaymentInfoItem(title: "Time", value: "10:15 AM"),
             SizedBox(height: 20),
             PaymentInfoItem(title: "To", value: "Sam Louis"),
+            Divider(thickness: 2, height: 60),
+            TotalPrice(title: "Total", value: r"$50.97"),
+            SizedBox(height: 30),
+            CardInfoWidget(),
           ],
         ),
       ),
